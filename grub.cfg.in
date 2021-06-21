@@ -1,0 +1,8 @@
+set root=http,PROVISIONING_ADDRESS
+set default=discovery
+set timeout=5
+
+menuentry "RHCOS Discovery" --id discovery {
+  linux  /images/vmlinuz ignition.config.url=http://PROVISIONING_ADDRESS/config.ign coreos.live.rootfs_url=http://PROVISIONING_ADDRESS/images/rootfs.img random.trust_cpu=on rd.luks.options=discard ignition.firstboot ignition.platform.id=metal console=tty1 console=ttyS0,115200n8 coreos.inst.persistent-kargs="console=tty1 console=ttyS0,115200n8"
+  initrd /images/initrd.img
+}

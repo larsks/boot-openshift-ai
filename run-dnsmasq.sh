@@ -1,7 +1,9 @@
 #!/bin/sh
 
-exec dnsmasq -d -i provisioning \
-	--dhcp-range=172.22.3.10,172.22.3.250,6h \
+. ./config.sh
+
+exec dnsmasq -d -i $PROVISIONING_INTERFACE \
+	--dhcp-range=$DHCP_RANGE_BEGIN,$DHCP_RANGE_END,$DHCP_LEASE_TIME \
 	--enable-tftp \
 	--tftp-root=$PWD \
 	--log-dhcp \
