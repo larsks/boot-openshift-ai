@@ -12,4 +12,5 @@ exec dnsmasq -d \
 	--dhcp-authoritative \
 	--dhcp-option=3 \
 	-M grubx64.efi \
+	$DNSMASQ_OPTIONS \
 	> dnsmasq.log 2>&1
